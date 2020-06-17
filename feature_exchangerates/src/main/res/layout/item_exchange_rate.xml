@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewdata"
+            type="com.paypay.exchangerates.presentation.viewdata.ExchangeRateViewData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/default_margin"
+        android:paddingEnd="@dimen/default_margin">
+
+        <TextView
+            android:id="@+id/currencyTextView"
+            android:layout_width="@dimen/item_exchange_rate_currency_cell_width"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:paddingStart="@dimen/default_margin_small"
+            android:paddingTop="@dimen/default_margin_small"
+            android:paddingBottom="@dimen/default_margin_small"
+            android:singleLine="true"
+            android:text="@{viewdata.currencyCode}"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ratesBarrier"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry"
+            tools:text="EUR" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/ratesBarrier"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="currencyTextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/currencyTextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/unitConversionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/amountConversionUnitText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ratesBarrier"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:text="@{viewdata.unitConversion}"
+            tools:text="1 USD = 0.5 EUR" />
+
+        <TextView
+            android:id="@+id/amountConversionUnitText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ratesBarrier"
+            app:layout_constraintTop_toBottomOf="@id/unitConversionTextView"
+            app:text="@{viewdata.amountConversion}"
+            tools:text="2.5 USD = 1.25 EUR" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

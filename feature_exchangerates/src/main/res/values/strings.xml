@@ -1,0 +1,4 @@
+<resources>
+    <string name="title_exchangerates">Exchange Rates</string>
+    <string name="exchange_rates_fragment_button_convert">Convert</string>
+</resources>

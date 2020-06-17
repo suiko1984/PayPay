@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.paypay.exchangerates.presentation.viewmodel.ExchangeRatesViewModel" />
+    </data>
+
+    <ViewFlipper
+        android:id="@+id/pageViewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:hasError="@{viewModel.hasError}"
+        app:isLoading="@{viewModel.isLoading}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/errorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/default_margin"
+            android:text="@{viewModel.error}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/amountEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:gravity="end"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:paddingTop="@dimen/default_margin"
+                android:paddingBottom="@dimen/default_margin"
+                android:textSize="@dimen/text_size_large"
+                app:amount="@{viewModel.amount}"
+                app:layout_constraintBottom_toTopOf="@id/currencySpinner"
+                app:layout_constraintEnd_toStartOf="@id/convertButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <Button
+                android:id="@+id/convertButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:text="@string/exchange_rates_fragment_button_convert"
+                app:layout_constraintBottom_toBottomOf="@id/amountEditText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/amountEditText"
+                app:layout_constraintTop_toTopOf="@id/amountEditText" />
+
+            <Spinner
+                android:id="@+id/currencySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:paddingTop="@dimen/default_margin"
+                android:paddingBottom="@dimen/default_margin"
+                android:textSize="@dimen/text_size"
+                app:currencies="@{viewModel.currencies}"
+                app:layout_constraintBottom_toTopOf="@id/ratesViewFlipper"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amountEditText"
+                app:selectedCurrency="@{viewModel.selectedCurrency}" />
+
+            <ViewFlipper
+                android:id="@+id/ratesViewFlipper"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/currencySpinner"
+                app:ratesHasError="@{viewModel.ratesHasError}"
+                app:ratesIsLoading="@{viewModel.ratesIsLoading}">
+
+                <ProgressBar
+                    android:id="@+id/ratesProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ratesRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:exchangerates="@{viewModel.exchangeRates}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/currencySpinner" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ratesErrorTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="16dp"
+                    android:text="@{viewModel.ratesError}" />
+            </ViewFlipper>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ViewFlipper>
+</layout>
