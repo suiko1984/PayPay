@@ -1,4 +1,4 @@
-package com.paypay.data.date
+package com.paypay.exchangerates.data.date
 
 import java.util.*
 

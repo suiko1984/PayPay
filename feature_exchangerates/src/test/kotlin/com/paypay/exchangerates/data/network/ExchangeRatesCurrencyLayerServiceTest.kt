@@ -1,8 +1,6 @@
-package com.paypay.exchangerates.framework
+package com.paypay.exchangerates.data.network
 
 import com.nhaarman.mockitokotlin2.mock
-import com.paypay.exchangerates.data.network.CurrencyLayerService
-import com.paypay.exchangerates.data.network.ExchangeRatesCurrencyLayerService
 import com.paypay.exchangerates.data.network.model.CurrencyLayerErrorDataModel
 import com.paypay.exchangerates.data.network.model.GetCurrenciesResponseDataModel
 import com.paypay.exchangerates.data.network.model.GetExchangeRatesResponseDataModel

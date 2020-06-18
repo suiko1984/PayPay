@@ -1,12 +1,10 @@
-package com.paypay.exchangerates.data
+package com.paypay.exchangerates.data.disk.sharedpreferences
 
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.only
 import com.nhaarman.mockitokotlin2.then
-import com.paypay.data.date.DateProvider
-import com.paypay.data.sharedpreferences.SharedPreferencesDataSource
-import com.paypay.exchangerates.data.disk.sharedpreferences.ExchangeRatesRefreshRulesSharedPreferences
-import com.paypay.framework.SharedPreferencesNotFoundException
+import com.paypay.exchangerates.data.date.DateProvider
+import com.paypay.exchangerates.framework.SharedPreferencesNotFoundException
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.junit.runner.RunWith

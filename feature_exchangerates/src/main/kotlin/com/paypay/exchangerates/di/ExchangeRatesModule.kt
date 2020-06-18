@@ -2,16 +2,18 @@ package com.paypay.exchangerates.di
 
 import android.content.Context
 import androidx.room.Room
-import com.paypay.exchangerates.data.disk.room.CurrencyDao
-import com.paypay.exchangerates.data.disk.room.RateDao
-import com.paypay.exchangerates.data.*
+import com.paypay.exchangerates.data.ExchangeRatesRepositoryImpl
+import com.paypay.exchangerates.data.date.DateProvider
 import com.paypay.exchangerates.data.disk.ExchangeRatesDiskDataSource
 import com.paypay.exchangerates.data.disk.ExchangeRatesRefreshRulesDiskDataSource
-import com.paypay.exchangerates.data.network.ExchangeRatesCurrencyLayerService
 import com.paypay.exchangerates.data.disk.room.AppDatabase
+import com.paypay.exchangerates.data.disk.room.CurrencyDao
 import com.paypay.exchangerates.data.disk.room.ExchangeRatesRoom
-import com.paypay.exchangerates.data.network.ExchangeRatesNetworkDataSource
+import com.paypay.exchangerates.data.disk.room.RateDao
 import com.paypay.exchangerates.data.disk.sharedpreferences.ExchangeRatesRefreshRulesSharedPreferences
+import com.paypay.exchangerates.data.disk.sharedpreferences.SharedPreferencesDataSource
+import com.paypay.exchangerates.data.network.ExchangeRatesCurrencyLayerService
+import com.paypay.exchangerates.data.network.ExchangeRatesNetworkDataSource
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.CurrencyCode
 import com.paypay.exchangerates.domain.entity.ExchangeRate
@@ -19,9 +21,11 @@ import com.paypay.exchangerates.domain.repository.ExchangeRatesRepository
 import com.paypay.exchangerates.domain.usecase.FetchCurrenciesUseCase
 import com.paypay.exchangerates.domain.usecase.FetchRatesFromCurrencyUseCase
 import com.paypay.exchangerates.domain.usecase.UseCase
+import com.paypay.exchangerates.framework.SharedPreferences
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import java.util.*
 import javax.inject.Named
 
 @Module
@@ -73,5 +77,18 @@ abstract class ExchangeRatesModule {
         fun providesRateDao(
             appDatabase: AppDatabase
         ): RateDao = appDatabase.rateDao()
+
+        @Provides
+        fun providesDateProvider() = object : DateProvider {
+            override val currentDate: Date
+                get() = Calendar.getInstance().time
+        }
+
+        @Provides
+        @ExchangeRatesScope
+        fun providesSharedPreferencesDataSource(
+            @Named("context")
+            context: Context
+        ): SharedPreferencesDataSource = SharedPreferences(context)
     }
 }

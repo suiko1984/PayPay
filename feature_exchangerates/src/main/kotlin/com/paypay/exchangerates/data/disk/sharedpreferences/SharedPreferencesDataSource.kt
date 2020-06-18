@@ -1,7 +1,7 @@
-package com.paypay.data.sharedpreferences
+package com.paypay.exchangerates.data.disk.sharedpreferences
 
-import com.paypay.framework.SharedPreferences
-import com.paypay.framework.SharedPreferencesNotFoundException
+import com.paypay.exchangerates.framework.SharedPreferences
+import com.paypay.exchangerates.framework.SharedPreferencesNotFoundException
 
 interface SharedPreferencesDataSource {
     fun writeLong(

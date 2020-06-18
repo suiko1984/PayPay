@@ -1,8 +1,8 @@
-package com.paypay.framework
+package com.paypay.exchangerates.framework
 
 import android.content.Context
 import androidx.core.content.edit
-import com.paypay.data.sharedpreferences.SharedPreferencesDataSource
+import com.paypay.exchangerates.data.disk.sharedpreferences.SharedPreferencesDataSource
 import javax.inject.Inject
 
 class SharedPreferences @Inject constructor(private val context: Context) :

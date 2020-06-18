@@ -1,7 +1,6 @@
 package com.paypay.exchangerates.data.disk.sharedpreferences
 
-import com.paypay.data.sharedpreferences.SharedPreferencesDataSource
-import com.paypay.data.date.DateProvider
+import com.paypay.exchangerates.data.date.DateProvider
 import com.paypay.exchangerates.data.disk.ExchangeRatesRefreshRulesDiskDataSource
 import javax.inject.Inject
 
