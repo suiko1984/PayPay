@@ -1,4 +1,4 @@
-package com.paypay.exchangerates.data.disk.room
+package com.paypay.exchangerates.framework.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

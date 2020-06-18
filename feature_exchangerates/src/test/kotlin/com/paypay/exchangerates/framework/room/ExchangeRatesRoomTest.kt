@@ -1,4 +1,4 @@
-package com.paypay.exchangerates.data.disk.room
+package com.paypay.exchangerates.framework.room
 
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.only

@@ -1,4 +1,4 @@
-package com.paypay.exchangerates.framework
+package com.paypay.exchangerates.framework.sharedpreferences
 
 import android.content.Context
 import org.junit.Test

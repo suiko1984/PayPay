@@ -1,5 +1,6 @@
-package com.paypay.exchangerates.data.network
+package com.paypay.exchangerates.framework.network
 
+import com.paypay.exchangerates.data.network.ExchangeRatesNetworkDataSource
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.ExchangeRate
 import com.paypay.exchangerates.domain.repository.GetCurrenciesException

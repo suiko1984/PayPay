@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.only
 import com.nhaarman.mockitokotlin2.then
 import com.paypay.exchangerates.data.date.DateProvider
-import com.paypay.exchangerates.framework.SharedPreferencesNotFoundException
+import com.paypay.exchangerates.framework.sharedpreferences.SharedPreferencesNotFoundException
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.junit.runner.RunWith

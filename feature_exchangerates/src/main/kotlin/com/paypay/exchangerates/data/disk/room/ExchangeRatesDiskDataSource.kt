@@ -1,4 +1,4 @@
-package com.paypay.exchangerates.data.disk
+package com.paypay.exchangerates.data.disk.room
 
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.CurrencyCode

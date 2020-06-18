@@ -1,7 +1,7 @@
-package com.paypay.exchangerates.data.network
+package com.paypay.exchangerates.framework.network
 
-import com.paypay.exchangerates.data.network.model.GetCurrenciesResponseDataModel
-import com.paypay.exchangerates.data.network.model.GetExchangeRatesResponseDataModel
+import com.paypay.exchangerates.framework.network.model.GetCurrenciesResponseDataModel
+import com.paypay.exchangerates.framework.network.model.GetExchangeRatesResponseDataModel
 import com.paypay.exchangerates.di.ExchangeRatesServiceModule.Companion.ACCESS_KEY_PARAM_NAME
 import com.paypay.exchangerates.di.ExchangeRatesServiceModule.Companion.ACCESS_KEY_PARAM_VALUE
 import com.paypay.exchangerates.di.ExchangeRatesServiceModule.Companion.GET_CURRENCIES_PATH

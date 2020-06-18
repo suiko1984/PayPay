@@ -1,9 +1,9 @@
-package com.paypay.exchangerates.data.network
+package com.paypay.exchangerates.framework.network
 
 import com.nhaarman.mockitokotlin2.mock
-import com.paypay.exchangerates.data.network.model.CurrencyLayerErrorDataModel
-import com.paypay.exchangerates.data.network.model.GetCurrenciesResponseDataModel
-import com.paypay.exchangerates.data.network.model.GetExchangeRatesResponseDataModel
+import com.paypay.exchangerates.framework.network.model.CurrencyLayerErrorDataModel
+import com.paypay.exchangerates.framework.network.model.GetCurrenciesResponseDataModel
+import com.paypay.exchangerates.framework.network.model.GetExchangeRatesResponseDataModel
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.ExchangeRate
 import com.paypay.exchangerates.domain.repository.GetCurrenciesException

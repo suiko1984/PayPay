@@ -1,6 +1,6 @@
-package com.paypay.exchangerates.data.disk.room
+package com.paypay.exchangerates.framework.room
 
-import com.paypay.exchangerates.data.disk.ExchangeRatesDiskDataSource
+import com.paypay.exchangerates.data.disk.room.ExchangeRatesDiskDataSource
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.CurrencyCode
 import com.paypay.exchangerates.domain.entity.ExchangeRate

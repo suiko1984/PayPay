@@ -1,4 +1,4 @@
-package com.paypay.exchangerates.data.network.model
+package com.paypay.exchangerates.framework.network.model
 
 data class CurrencyLayerErrorDataModel(
     val code: Int,

@@ -1,7 +1,6 @@
 package com.paypay.exchangerates.data.disk.sharedpreferences
 
 import com.paypay.exchangerates.data.date.DateProvider
-import com.paypay.exchangerates.data.disk.ExchangeRatesRefreshRulesDiskDataSource
 import javax.inject.Inject
 
 class ExchangeRatesRefreshRulesSharedPreferences @Inject constructor(
