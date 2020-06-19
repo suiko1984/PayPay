@@ -1,6 +1,6 @@
 package com.paypay.exchangerates.di
 
-import com.paypay.exchangerates.framework.network.CurrencyLayerService
+import com.paypay.exchangerates.datasource.network.CurrencyLayerService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

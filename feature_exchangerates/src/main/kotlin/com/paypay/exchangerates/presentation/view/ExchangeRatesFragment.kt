@@ -18,7 +18,7 @@ import com.paypay.exchangerates.databinding.FragmentExchangeRatesBinding
 import com.paypay.exchangerates.di.DaggerExchangeRatesComponent
 import com.paypay.exchangerates.presentation.adapter.CurrencyAdapter
 import com.paypay.exchangerates.presentation.adapter.ExchangeRateAdapter
-import com.paypay.exchangerates.presentation.extension.hideKeyboard
+import com.paypay.common.presentation.extension.hideKeyboard
 import com.paypay.exchangerates.presentation.viewdata.CurrencyViewData
 import com.paypay.exchangerates.presentation.viewmodel.ExchangeRatesViewModel
 import javax.inject.Inject
@@ -37,7 +37,8 @@ class ExchangeRatesFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         val appComponent = (context.applicationContext as PayPayApp).appComponent
-        DaggerExchangeRatesComponent.factory().create(appComponent, requireContext()).inject(this)
+        val commonComponent = (context.applicationContext as PayPayApp).commonComponent
+        DaggerExchangeRatesComponent.factory().create(appComponent, commonComponent, requireContext()).inject(this)
         super.onAttach(context)
     }
 

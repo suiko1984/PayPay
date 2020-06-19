@@ -1,7 +1,7 @@
 package com.paypay.exchangerates.data
 
-import com.paypay.exchangerates.data.disk.room.ExchangeRatesDiskDataSource
-import com.paypay.exchangerates.data.disk.sharedpreferences.ExchangeRatesRefreshRulesDiskDataSource
+import com.paypay.exchangerates.data.disk.ExchangeRatesDiskDataSource
+import com.paypay.exchangerates.data.disk.ExchangeRatesRefreshRulesDiskDataSource
 import com.paypay.exchangerates.data.network.*
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.ExchangeRate

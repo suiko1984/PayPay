@@ -1,3 +1,4 @@
 rootProject.name='PayPay'
 include ':app'
 include ':feature_exchangerates'
+include ':common'

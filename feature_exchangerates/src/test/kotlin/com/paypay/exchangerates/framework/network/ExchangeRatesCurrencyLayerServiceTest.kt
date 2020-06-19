@@ -1,9 +1,11 @@
 package com.paypay.exchangerates.framework.network
 
 import com.nhaarman.mockitokotlin2.mock
-import com.paypay.exchangerates.framework.network.model.CurrencyLayerErrorDataModel
-import com.paypay.exchangerates.framework.network.model.GetCurrenciesResponseDataModel
-import com.paypay.exchangerates.framework.network.model.GetExchangeRatesResponseDataModel
+import com.paypay.exchangerates.datasource.network.CurrencyLayerService
+import com.paypay.exchangerates.datasource.network.ExchangeRatesCurrencyLayerService
+import com.paypay.exchangerates.datasource.network.model.CurrencyLayerErrorDataModel
+import com.paypay.exchangerates.datasource.network.model.GetCurrenciesResponseDataModel
+import com.paypay.exchangerates.datasource.network.model.GetExchangeRatesResponseDataModel
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.ExchangeRate
 import com.paypay.exchangerates.domain.repository.GetCurrenciesException
@@ -81,7 +83,11 @@ internal class ExchangeRatesCurrencyLayerServiceTest {
         val response: Response<GetCurrenciesResponseDataModel> = mock()
         given(service.getCurrencies()).willReturn(call)
         given(call.execute()).willReturn(response)
-        given(response.body()).willReturn(GetCurrenciesResponseDataModel(success = true))
+        given(response.body()).willReturn(
+            GetCurrenciesResponseDataModel(
+                success = true
+            )
+        )
         dataSource.getCurrencies()
     }
 
@@ -94,7 +100,10 @@ internal class ExchangeRatesCurrencyLayerServiceTest {
         given(response.body()).willReturn(
             GetCurrenciesResponseDataModel(
                 success = false,
-                error = CurrencyLayerErrorDataModel(101, "")
+                error = CurrencyLayerErrorDataModel(
+                    101,
+                    ""
+                )
             )
         )
         dataSource.getCurrencies()
@@ -152,7 +161,11 @@ internal class ExchangeRatesCurrencyLayerServiceTest {
         val response: Response<GetExchangeRatesResponseDataModel> = mock()
         given(service.getExchangeRatesByCurrency("EUR")).willReturn(call)
         given(call.execute()).willReturn(response)
-        given(response.body()).willReturn(GetExchangeRatesResponseDataModel(success = true))
+        given(response.body()).willReturn(
+            GetExchangeRatesResponseDataModel(
+                success = true
+            )
+        )
         dataSource.getRatesByCurrency("EUR")
     }
 
@@ -165,7 +178,10 @@ internal class ExchangeRatesCurrencyLayerServiceTest {
         given(response.body()).willReturn(
             GetExchangeRatesResponseDataModel(
                 success = false,
-                error = CurrencyLayerErrorDataModel(101, "")
+                error = CurrencyLayerErrorDataModel(
+                    101,
+                    ""
+                )
             )
         )
         dataSource.getRatesByCurrency("EUR")
@@ -180,7 +196,10 @@ internal class ExchangeRatesCurrencyLayerServiceTest {
         given(response.body()).willReturn(
             GetExchangeRatesResponseDataModel(
                 success = false,
-                error = CurrencyLayerErrorDataModel(105, "")
+                error = CurrencyLayerErrorDataModel(
+                    105,
+                    ""
+                )
             )
         )
         dataSource.getRatesByCurrency("EUR")

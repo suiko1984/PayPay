@@ -3,6 +3,8 @@ package com.paypay.exchangerates.framework.room
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.only
 import com.nhaarman.mockitokotlin2.then
+import com.paypay.common.datasource.room.*
+import com.paypay.exchangerates.datasource.disk.ExchangeRatesRoom
 import com.paypay.exchangerates.domain.entity.Currency
 import com.paypay.exchangerates.domain.entity.ExchangeRate
 import kotlinx.coroutines.runBlocking
@@ -28,10 +30,22 @@ internal class ExchangeRatesRoomTest {
     fun `getCurrencies when normal case`() = runBlocking {
         given(currencyDao.getAll()).willReturn(
             listOf(
-                CurrencyRoomEntity(code = "EUR", label = "Euro"),
-                CurrencyRoomEntity(code = "USD", label = "US Dollar"),
-                CurrencyRoomEntity(code = "JPY", label = "Japanese Yen"),
-                CurrencyRoomEntity(code = "GBP", label = "British Pound")
+                CurrencyRoomEntity(
+                    code = "EUR",
+                    label = "Euro"
+                ),
+                CurrencyRoomEntity(
+                    code = "USD",
+                    label = "US Dollar"
+                ),
+                CurrencyRoomEntity(
+                    code = "JPY",
+                    label = "Japanese Yen"
+                ),
+                CurrencyRoomEntity(
+                    code = "GBP",
+                    label = "British Pound"
+                )
             )
         )
         val result = exchangeRatesRoom.getCurrencies()
@@ -64,10 +78,22 @@ internal class ExchangeRatesRoomTest {
         )
         then(currencyDao).should(only()).insert(
             listOf(
-                CurrencyRoomEntity(code = "EUR", label = "Euro"),
-                CurrencyRoomEntity(code = "USD", label = "US Dollar"),
-                CurrencyRoomEntity(code = "JPY", label = "Japanese Yen"),
-                CurrencyRoomEntity(code = "GBP", label = "British Pound")
+                CurrencyRoomEntity(
+                    code = "EUR",
+                    label = "Euro"
+                ),
+                CurrencyRoomEntity(
+                    code = "USD",
+                    label = "US Dollar"
+                ),
+                CurrencyRoomEntity(
+                    code = "JPY",
+                    label = "Japanese Yen"
+                ),
+                CurrencyRoomEntity(
+                    code = "GBP",
+                    label = "British Pound"
+                )
             )
         )
     }
@@ -78,10 +104,22 @@ internal class ExchangeRatesRoomTest {
             RateRoomEntity(
                 "EUR",
                 listOf(
-                    RateEntity(currency = "EUR", rate = 1.0),
-                    RateEntity(currency = "USD", rate = 1.1254962031385587),
-                    RateEntity(currency = "JPY", rate = 120.66332244228175),
-                    RateEntity(currency = "GBP", rate = 0.8993547530267406)
+                    RateEntity(
+                        currency = "EUR",
+                        rate = 1.0
+                    ),
+                    RateEntity(
+                        currency = "USD",
+                        rate = 1.1254962031385587
+                    ),
+                    RateEntity(
+                        currency = "JPY",
+                        rate = 120.66332244228175
+                    ),
+                    RateEntity(
+                        currency = "GBP",
+                        rate = 0.8993547530267406
+                    )
                 )
             )
         )
@@ -118,10 +156,22 @@ internal class ExchangeRatesRoomTest {
             RateRoomEntity(
                 "EUR",
                 listOf(
-                    RateEntity(currency = "EUR", rate = 1.0),
-                    RateEntity(currency = "USD", rate = 1.1254962031385587),
-                    RateEntity(currency = "JPY", rate = 120.66332244228175),
-                    RateEntity(currency = "GBP", rate = 0.8993547530267406)
+                    RateEntity(
+                        currency = "EUR",
+                        rate = 1.0
+                    ),
+                    RateEntity(
+                        currency = "USD",
+                        rate = 1.1254962031385587
+                    ),
+                    RateEntity(
+                        currency = "JPY",
+                        rate = 120.66332244228175
+                    ),
+                    RateEntity(
+                        currency = "GBP",
+                        rate = 0.8993547530267406
+                    )
                 )
             )
         )

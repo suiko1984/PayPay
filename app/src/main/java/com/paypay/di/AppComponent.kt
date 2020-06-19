@@ -1,13 +1,14 @@
 package com.paypay.di
 
 import com.paypay.PayPayApp
+import com.paypay.common.CommonComponent
 import dagger.Component
 import dagger.android.AndroidInjectionModule
-import javax.inject.Singleton
 
-@Singleton
+@AppScope
 @Suppress("unused")
 @Component(
+    dependencies = [CommonComponent::class],
     modules = [
         AndroidInjectionModule::class,
         ActivityBindingModule::class
@@ -20,6 +21,6 @@ interface AppComponent {
     @Component.Factory
     interface Factory {
 
-        fun create(): AppComponent
+        fun create(commonComponent: CommonComponent): AppComponent
     }
 }

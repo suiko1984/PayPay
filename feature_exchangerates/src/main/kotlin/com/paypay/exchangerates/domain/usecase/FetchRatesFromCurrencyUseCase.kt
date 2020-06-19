@@ -1,5 +1,6 @@
 package com.paypay.exchangerates.domain.usecase
 
+import com.paypay.common.domain.usecase.UseCase
 import com.paypay.exchangerates.domain.entity.CurrencyCode
 import com.paypay.exchangerates.domain.entity.ExchangeRate
 import com.paypay.exchangerates.domain.repository.ExchangeRatesRepository

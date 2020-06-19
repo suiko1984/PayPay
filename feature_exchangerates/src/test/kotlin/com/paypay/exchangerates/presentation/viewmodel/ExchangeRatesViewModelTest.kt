@@ -8,8 +8,8 @@ import com.paypay.exchangerates.domain.usecase.FetchCurrenciesException
 import com.paypay.exchangerates.domain.usecase.FetchCurrenciesUseCase
 import com.paypay.exchangerates.domain.usecase.FetchRatesFromCurrencyException
 import com.paypay.exchangerates.domain.usecase.FetchRatesFromCurrencyUseCase
-import com.paypay.exchangerates.presentation.extension.getOrAwaitValue
-import com.paypay.exchangerates.presentation.extension.setValue
+import com.paypay.common.presentation.extension.getOrAwaitValue
+import com.paypay.common.presentation.extension.setValue
 import com.paypay.exchangerates.presentation.util.CoroutinesTestRule
 import com.paypay.exchangerates.presentation.viewdata.CurrencyViewData
 import com.paypay.exchangerates.presentation.viewdata.ExchangeRateViewData

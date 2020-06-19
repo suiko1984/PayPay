@@ -11,6 +11,7 @@ import org.junit.runner.RunWith
 @SuppressWarnings("Unused")
 @AnalyzeClasses(packages = ["com.paypay.exchangerates"])
 class LayerDependenciesTest {
+
     @ArchTest
     fun `domain layer should not depend on presentation layer`(importedClasses: JavaClasses) {
         val rule = noClasses().that().resideInAPackage("..domain..")
@@ -22,6 +23,55 @@ class LayerDependenciesTest {
     fun `domain layer should not depend on data layer`(importedClasses: JavaClasses) {
         val rule = noClasses().that().resideInAPackage("..domain..")
             .should().dependOnClassesThat().resideInAPackage("..data..")
+        rule.check(importedClasses)
+    }
+
+    @ArchTest
+    fun `domain layer should not depend on datasource layer`(importedClasses: JavaClasses) {
+        val rule = noClasses().that().resideInAPackage("..domain..")
+            .should().dependOnClassesThat().resideInAPackage("..datasource..")
+        rule.check(importedClasses)
+    }
+
+    @ArchTest
+    fun `presentation layer should not depend on data layer`(importedClasses: JavaClasses) {
+        val rule = noClasses().that().resideInAPackage("..presentation..")
+            .should().dependOnClassesThat().resideInAPackage("..data..")
+        rule.check(importedClasses)
+    }
+
+    @ArchTest
+    fun `presentation layer should not depend on datasource layer`(importedClasses: JavaClasses) {
+        val rule = noClasses().that().resideInAPackage("..presentation..")
+            .should().dependOnClassesThat().resideInAPackage("..datasource..")
+        rule.check(importedClasses)
+    }
+
+    @ArchTest
+    fun `data layer should not depend on presentation layer`(importedClasses: JavaClasses) {
+        val rule = noClasses().that().resideInAPackage("..data..")
+            .should().dependOnClassesThat().resideInAPackage("..presentation..")
+        rule.check(importedClasses)
+    }
+
+    @ArchTest
+    fun `data layer should not depend on datasource layer`(importedClasses: JavaClasses) {
+        val rule = noClasses().that().resideInAPackage("..data..")
+            .should().dependOnClassesThat().resideInAPackage("..datasource..")
+        rule.check(importedClasses)
+    }
+
+    @ArchTest
+    fun `domain layer should not depend on android framework`(importedClasses: JavaClasses) {
+        val rule = noClasses().that().resideInAPackage("..domain..")
+            .should().dependOnClassesThat().resideInAPackage("..android..")
+        rule.check(importedClasses)
+    }
+
+    @ArchTest
+    fun `data layer should not depend on android framework`(importedClasses: JavaClasses) {
+        val rule = noClasses().that().resideInAPackage("..data..")
+            .should().dependOnClassesThat().resideInAPackage("..android..")
         rule.check(importedClasses)
     }
 }

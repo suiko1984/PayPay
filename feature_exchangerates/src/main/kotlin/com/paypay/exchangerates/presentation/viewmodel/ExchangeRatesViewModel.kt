@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.paypay.exchangerates.domain.usecase.FetchCurrenciesUseCase
 import com.paypay.exchangerates.domain.usecase.FetchRatesFromCurrencyUseCase
-import com.paypay.exchangerates.presentation.extension.setValue
-import com.paypay.exchangerates.presentation.extension.value
+import com.paypay.common.presentation.extension.setValue
+import com.paypay.common.presentation.extension.value
 import com.paypay.exchangerates.presentation.viewdata.CurrencyViewData
 import com.paypay.exchangerates.presentation.viewdata.ExchangeRateViewData
 import kotlinx.coroutines.launch
@@ -66,7 +66,7 @@ class ExchangeRatesViewModel @Inject constructor(
     }
 
     fun selectAmount(newAmount: Double?) = viewModelScope.launch {
-        newAmount?.let { amount.setValue(it) } ?: amount.setValue(amount.value())
+        newAmount?.let { amount.setValue(it) } ?: amount.setValue(amount.value)
         fetchExchangeRates()
     }
 
@@ -76,15 +76,15 @@ class ExchangeRatesViewModel @Inject constructor(
     }
 
     fun fetchExchangeRates() = viewModelScope.launch {
-        if (exchangeRates.value().isEmpty() || ratesHasError.value == true) ratesIsLoading.setValue(true)
+        if (exchangeRates.value?.isEmpty() == true || ratesHasError.value == true) ratesIsLoading.setValue(true)
         ratesHasError.setValue(false)
         runCatching {
             val exchangeRateList = fetchRatesFromCurrencyUseCase.invoke(selectedCurrency.value().code)
                 .map {
                     ExchangeRateViewData(
                         currencyCode = it.currencyCode,
-                        unitConversion = "1.0 ${selectedCurrency.value().code} = ${it.rate} ${it.currencyCode}",
-                        amountConversion = "${amount.value()} ${selectedCurrency.value().code} = ${it.rate * amount.value()} ${it.currencyCode}"
+                        unitConversion = "1.0 ${selectedCurrency.value?.code} = ${it.rate} ${it.currencyCode}",
+                        amountConversion = "${amount.value} ${selectedCurrency.value?.code} = ${it.rate * amount.value()} ${it.currencyCode}"
                     )
                 }
             exchangeRates.setValue(exchangeRateList)
