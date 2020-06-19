@@ -1,12 +1,12 @@
-# PayPay
+# PayPay Coding Challenge
 
 
 Here is my solution for the coding challenge.
 
-Goal:
+# Goal:
 - Develop a Currency Conversion App that allows a user view exchange rates for any given currency
 
-Functional requirements:
+# Functional requirements:
 - Exchange rates are fetched from: https://currencylayer.com/documentation
 - I only used the free API Access Key for using the API. Therefore, there were some limitations to
 access the complete API. For instance, getting the exchange rates of any currency other the USD was
@@ -26,11 +26,12 @@ user retrieves the USD rates, the countdown would start at this time, and if EUR
 within the 30 minutes, the countdown is not reset to 30 minutes.
 
 
-Technical notes:
+# Technical notes:
 - I chose feature based module in order to be able to scale the project with new features.
 - I applied a "light" clean architecture with layers as shown in the graph below.
 - Dependencies between layer are tested with ArchUnit.
 - Please run "./gradlew test" for the unit tests.
+- Dependency Injections are done with Dagger2.
 - Databinding with LiveData are used for the presentation part.
 - Coroutines are launch starting for the domain layer.
 - I did not have the time to implement functional tests with Espresso, please apologize. If
@@ -41,6 +42,6 @@ Please note that I did not go as deep as I would have for a real project in prod
 - this exercice is for demonstration purpose only,
 - the project is too small.
 
-Simplified version of the global architecture:
+# Simplified version of the global architecture:
 
 ![Screenshot](paypay.png)
